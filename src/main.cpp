@@ -1,11 +1,15 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <Eigen/Dense>  
+
 #include "bird.h"
 using namespace std;
 using namespace cv;
 int main(int argc, char** argv)
 {
-    bird b;
+	Eigen::Vector4d vec4d(1.0, 2.0, 3.0, 4.0);
+	cout << vec4d << endl;
+	bird b;
     b.fly();
 	if (argc != 2)
 	{
