@@ -1,13 +1,10 @@
-#define DLL_EXPORTS
-
-
-#ifdef DLL_EXPORTS  
-#define DLL_EXPORTS_API extern "C" __declspec(dllexport)
-#else  
-#define DLL_EXPORTS_API extern "C" __declspec(dllimport)
-#endif  
+#if defined(__linux__)
+	#define DLL_EXPORT extern __attribute ((visibility("default")))
+#else
+	#define DLL_EXPORT extern "C" __declspec(dllexport)
+#endif
 
 #ifndef HELLO_H
 #define HELLO_H
-DLL_EXPORTS_API int HelloFunc(int a,int b);
+DLL_EXPORT int HelloFunc(int a,int b);
 #endif

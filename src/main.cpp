@@ -2,20 +2,18 @@
 #include <opencv2/opencv.hpp>
 #include <Eigen/Dense>  
 #include <windows.h>
-
 #include "bird.h"
 
 using namespace std;
 using namespace cv;
-typedef int(*HelloFunc)(int, int);
+typedef int(*HelloFuncDLL)(int, int);
 int main(int argc, char** argv)
 {
-	
 	HINSTANCE hDLL;
 	hDLL = LoadLibrary("hello.dll");//加载动态链接库MyDll.dll文件； 
 	if (hDLL)
 	{
-		HelloFunc helloF = (HelloFunc)GetProcAddress(hDLL, "HelloFunc");
+		HelloFuncDLL helloF = (HelloFuncDLL)GetProcAddress(hDLL, "HelloFunc");
 		cout << "1" << endl;
 		if (helloF != NULL)
 		{
