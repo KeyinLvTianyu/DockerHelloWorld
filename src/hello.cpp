@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-void HelloFunc()
+int HelloFunc(int a,int b)
 {
-    cout<<"Hello World\n";
+	return a + b;
 }
