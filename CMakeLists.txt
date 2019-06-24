@@ -11,6 +11,8 @@ find_package(Eigen3 REQUIRED)
 INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIR})
 include_directories(include)
 
+SET(LIBHELLO_SRC "src/hello.cpp")
+ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC})
 
 # bring the src dir to project
 # set(SOURCES src/bird.cpp src/main.cpp)  # method1: add cxx file one by one
